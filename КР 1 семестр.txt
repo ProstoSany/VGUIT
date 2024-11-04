@@ -1,0 +1,11 @@
+# Считываю введенные данные
+A = int(input())
+B = int(input())
+
+# Определения порядка введенных чисел
+if A < B:
+    for number in range(A, B + 1):  # Включительно B
+        print(number)
+else:
+    for number in range(A, B - 1, -1):  # От A до B включительно в обратном порядке
+        print(number)
