@@ -1,0 +1,29 @@
+import math
+
+def prime_factors(n):
+    factors = []
+    # Проверяем делимость на 2
+    while n % 2 == 0:
+        factors.append(2)
+        n //= 2
+        
+    # Проверяем делимость на нечётные числа от 3 до sqrt(n)
+    for i in range(3, int(math.sqrt(n)) + 1, 2):
+        while n % i == 0:
+            factors.append(i)
+            n //= i
+            
+    # Если остаток больше 1, добавляем его в список факторов
+    if n > 1:
+        factors.append(n)
+        
+    return factors
+
+# Считывание числа от пользователя
+number = int(input("Введите число: "))
+
+# Разложение числа на простые множители
+factors = prime_factors(number)
+
+# Вывод результата
+print(f"Простые множители числа {number}: {factors}")
